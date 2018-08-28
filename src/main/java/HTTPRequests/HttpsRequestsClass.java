@@ -25,12 +25,8 @@ public class HttpsRequestsClass {
                     public X509Certificate[] getAcceptedIssuers() {
                         return null;
                     }
-                    public void checkClientTrusted(X509Certificate[] certs,
-                                                   String authType) {
-                    }
-                    public void checkServerTrusted(X509Certificate[] certs,
-                                                   String authType) {
-                    }
+                    public void checkClientTrusted(X509Certificate[] certs, String authType) { }
+                    public void checkServerTrusted(X509Certificate[] certs, String authType) { }
                 }
         };
 
@@ -39,10 +35,8 @@ public class HttpsRequestsClass {
             SSLContext sc = SSLContext.getInstance("TLS");
             sc.init(null, trustAllCerts, new SecureRandom());
             HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-        } catch (Exception e) {
-        }
+        } catch (Exception e) { }
     }
-
 
     /**
      * основная функция
@@ -105,5 +99,3 @@ public class HttpsRequestsClass {
         reader.close();
     }
 }
-
-
