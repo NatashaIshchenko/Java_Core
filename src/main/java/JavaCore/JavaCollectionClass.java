@@ -10,9 +10,11 @@ import java.util.*;
 public class JavaCollectionClass {
     public static void main(String [ ] args)  {
         JavaCollectionClass javaCollectionClass = new JavaCollectionClass();
-        javaCollectionClass.listFunc();
-        javaCollectionClass.setFunc();
-        javaCollectionClass.mapFunc();
+       // javaCollectionClass.listFunc();
+        //javaCollectionClass.setFunc();
+        //javaCollectionClass.mapFunc();
+        //javaCollectionClass.iteratorFunc();
+        javaCollectionClass.queueFunc();
     }
 
     /**
@@ -48,6 +50,25 @@ public class JavaCollectionClass {
         for(Object person : peopleArray){ System.out.println(person); }
     }
 
+    /**
+     * Итератор - паттерн, позволяющий обходить коллекцию без раскрытия деталей реализации
+     * В Java для этих целей создан специальный interface с одноименным названием java.util.Iterator
+     * https://metanit.com/java/tutorial/5.10.php
+     */
+    private void iteratorFunc(){
+        ArrayList<String> people = new ArrayList<String>();
+        //добвление
+        people.add("people1");
+        people.add("people2");
+        people.add("people3");
+        people.add("people4");
+        people.add("people5");
+        people.add("people6");
+
+        Iterator<String> it = people.iterator();
+        while(it.hasNext())
+            System.out.println(it.next());
+    }
 
     /**
      * Set - это Collection, у которой элементы в 'корзине' уникальны, нет с таким же значением (нет возможности получить элемент по номеру)
@@ -141,5 +162,43 @@ public class JavaCollectionClass {
         //вывод элементов #3
         System.out.println("foreach");
         map2.forEach((k,v) -> System.out.println(k + " : " +v));
+    }
+
+    /**
+     * Queue (очередь) - интерфейс, расширяюзий интерфейс Collections
+     *
+     * Очереди представляют структуру данных, работающую по принципу
+     * FIFO (first in - first out, "первый пришел первый вышел")
+     * LIFO ("Last in first out", "последний пришел первый вышел")
+     * или двухсторонний, т.е можно работать с первым и последним элементом
+     *
+     * ArrayDeque - один из классов, реализующих интерфейс Queue
+     *
+    */
+    private void queueFunc(){
+        ArrayDeque<String> states = new ArrayDeque<String>();
+        // стандартное добавление элементов
+        states.add("Germany");
+        states.addFirst("France"); // добавляем элемент в самое начало
+        states.push("Great Britain"); // добавляем элемент в самое начало
+        states.addLast("Spain"); // добавляем элемент в конец коллекции
+        states.add("Italy");
+        //вывод всех объектов очереди
+        states.forEach(System.out::println);
+
+        // получаем первый элемент без удаления
+        String sFirst = states.getFirst();
+        System.out.println(sFirst);     // Great Britain
+        // получаем последний элемент без удаления
+        String sLast = states.getLast();
+        System.out.println(sLast);      // Italy
+
+        System.out.printf("Queue size: %d \n", states.size());  // 5
+
+        // перебор коллекции
+        while(states.peek()!=null){
+            // извлечение c начала
+            System.out.println(states.pop());
+        }
     }
 }
