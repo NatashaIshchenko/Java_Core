@@ -11,6 +11,9 @@ import java.util.regex.Pattern;
  * Класс Patern применяется для задания регулярного выражения.
  * Класс Matcher сопоставляет шаблон с последовательностью символов.
  * Ни Pattern ни Matcher не имеют конструкторов, мы создаем их с помощью методов класса Pattern.
+ *
+ * https://regex101.com/ - regular expression online
+ *
  */
 public class RegularExpressionClass {
 
