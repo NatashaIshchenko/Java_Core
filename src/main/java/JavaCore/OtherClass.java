@@ -1,27 +1,31 @@
 package JavaCore;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * 1. Overloading
  * 2. функции с переменным числом параметров
  * 3. Control structure (if, switch, for, while)
+ * 4. Continue
+ * 5. Break
+ * 6. Парсинг
  */
 public class OtherClass {
 
     public static void main(String[] args) {
 
-//        overloadingFunc();
-//        overloadingFunc(1);
-//        overloadingFunc('a');
-//        overloadingFunc(1, 2);
-//
-//        differentParamsCountFunc(1);
-//        differentParamsCountFunc(1,2);
-//        differentParamsCountFunc(1,2,3);
+        overloadingFunc();
+        overloadingFunc(1);
+        overloadingFunc('a');
+        overloadingFunc(1, 2);
+
+        differentParamsCountFunc(1);
+        differentParamsCountFunc(1,2);
+        differentParamsCountFunc(1,2,3);
 
         controlStructureFunc();
+        continueFunc();
+        breakFunc();
+        parseFunc();
     }
 
     /**
@@ -102,5 +106,47 @@ public class OtherClass {
             System.out.println("count = " + count);
             count++;
         }
+
+    }
+
+    /**
+     * 4. Continue
+     *
+     * The continue statement is used in loop control structure when you need to jump to the next iteration of the loop immediately.
+     * It can be used with for loop or while loop
+     */
+    private static void continueFunc(){
+
+        for(int i=1;i<=10;i++){
+            if(i==5){ // 5 не выведет
+                //using continue statement
+                continue;//it will skip the rest statement
+            }
+            System.out.println(i);
+        }
+    }
+
+    /**
+     * 5. Break
+     *
+     * When a break statement is encountered inside a loop, the loop is immediately terminated and the program control resumes
+     * at the next statement following the loop
+     */
+    private static void breakFunc(){
+        for(int i=1;i<=10;i++){
+            if(i==5){ //далее 5ого уикл не продолжится
+                break;
+            }
+            System.out.println(i);
+        }
+    }
+
+    /**
+     * 6. Парсинг
+     */
+    private static void parseFunc(){
+        int i = Integer.parseInt("123");
+        long l = Long.parseLong("111111111");
+        String s = String.valueOf(123.01);
     }
 }
