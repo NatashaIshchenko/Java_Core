@@ -12,12 +12,14 @@ package JavaCore;
  */
 abstract class Super1 {
     private int id = 5;
+    public Super1(){System.out.println("Constructor Super1");}
     public int getId() {return id;}
     public abstract void test1();
 }
 
 abstract class Super2 extends Super1{
     public abstract void test2();
+
 }
 
 public class AbstractClass extends Super2{
@@ -27,6 +29,14 @@ public class AbstractClass extends Super2{
         abstractClass.test1();
         abstractClass.test2();
         System.out.println(abstractClass.getId());
+
+        //создается не объект абстрактного класса, а наследник, реализующие абстрактные методы
+        Super1 s = new Super1() {
+            @Override
+            public void test1() {
+                System.out.println("Реализация абтрактного метода test1()");
+            }
+        };
     }
 
     @Override
