@@ -66,19 +66,20 @@ public class InheritanceClass {
      * где ссылка_на_объект обозначает ссылку на экземпляр класса, а тип - конкрет­ный тип этого класса.
      * Если ссылка_на_объект относится к указанному типу или может быть приведена к нему, то
      * вычисление оператора instanceof дает в итоге логическое значение true, а иначе - логическое значение false.
+     * https://www.javatpoint.com/downcasting-with-instanceof-operator
      */
     private static void func3(){
         A a = new A();
         B b = new B();
         A a1 = new B();
         System.out.println("a instanceof A = " + (a instanceof A)); //true
-        System.out.println("a instanceof B = " + (a instanceof B)); //false - нельзя преобразовать родителя в наследника
-        System.out.println("b instanceof A = " + (b instanceof A)); //true - можно преобразовать наследника в родителя
+        System.out.println("a instanceof B = " + (a instanceof B)); //false
+        System.out.println("b instanceof A = " + (b instanceof A)); //true
         System.out.println("b1 instanceof A = " + (a1 instanceof A)); //true
         System.out.println("b1 instanceof A = " + (a1 instanceof B)); //true
         System.out.println("b1 instanceof A = " + (a instanceof C)); // false
         System.out.println("b1 instanceof A = " + (a1 instanceof C)); // false
-        //C c = (C) a; - ошибка "JavaCore.A cannot be cast to JavaCore.C", нельзя родителя расширить до потомка
-        A a2 = (A) b; //а так можно, потомка сужаем до родителя
+        //C c = (C) a; - ошибка "JavaCore.A cannot be cast to JavaCore.C"
+        A a2 = (A) b; //можно
     }
 }
