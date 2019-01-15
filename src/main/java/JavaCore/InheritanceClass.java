@@ -14,6 +14,7 @@ class B extends A {
     void func3(int a){System.out.println("B.func3(int a) = "+a);}
     void func4(){System.out.println("B.func4()");}
     void func7(){System.out.println("B.func7()");}
+    public void func9(){System.out.println("B.func9()");}
 }
 class C extends A {
 }
@@ -36,8 +37,8 @@ public class InheritanceClass {
 
     public static void main(String[] args){
         //func1();
-        //func2();
-       func3();
+        func2();
+       //func3();
 
     }
 
@@ -52,7 +53,10 @@ public class InheritanceClass {
 
     private static void func2(){
         A a = new B();
+        //B b = new A(); - ругается, не может сузить A до B
         a.func2(); // вызывает метод потомка
+        // a.func9(); - ругается, так как а не знает метода func9()
+        ((B) a).func9(); // вызовет метод потомка
         //a.func7() - ругается так как метод приватный
         ((B) a).func7(); //вызовет метод потомка
     }
