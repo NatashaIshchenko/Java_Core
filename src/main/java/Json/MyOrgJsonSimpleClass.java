@@ -18,8 +18,8 @@ public class MyOrgJsonSimpleClass {
      */
     public static void main(String [ ] args) throws Exception {
         MyOrgJsonSimpleClass testClass = new MyOrgJsonSimpleClass();
-        testClass.createAndGetJsonObject();
-        testClass.createAndGetJsonArray();
+       // testClass.createAndGetJsonObject();
+       // testClass.createAndGetJsonArray();
         testClass.funcSimpleJSONParser();
     }
 
@@ -92,5 +92,6 @@ public class MyOrgJsonSimpleClass {
         Object obj2 = parser.parse(new FileReader(filePath2));
         JSONArray jsonObject2 = (JSONArray) obj2;
         System.out.println("funcSimpleJSONParser - for JsonArray: " + jsonObject2.toString());
+        System.out.println(obj2 instanceof JSONArray); // true
     }
 }

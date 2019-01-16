@@ -37,8 +37,8 @@ public class InheritanceClass {
 
     public static void main(String[] args){
         //func1();
-        func2();
-       //func3();
+        //func2();
+       func3();
 
     }
 
@@ -79,7 +79,11 @@ public class InheritanceClass {
         System.out.println("b1 instanceof A = " + (a1 instanceof B)); //true
         System.out.println("b1 instanceof A = " + (a instanceof C)); // false
         System.out.println("b1 instanceof A = " + (a1 instanceof C)); // false
-        //C c = (C) a; - ошибка "JavaCore.A cannot be cast to JavaCore.C"
+        System.out.println("a instanceof C = " + (a instanceof C)); // false
+        //C c = (C) a; //- ошибка "JavaCore.A cannot be cast to JavaCore.C"
         A a2 = (A) b; //можно
+
+        Object obj = new Object();
+        System.out.println("obj instanceof C = " + (obj instanceof C)); // false
     }
 }
