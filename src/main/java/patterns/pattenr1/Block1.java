@@ -6,4 +6,13 @@ public class Block1 extends AbstractBlock {
         System.out.println("Constuctor Block1");
     }
 
+    @Override
+    public void abstractFunc2() {
+        System.out.println("abstractFunc2() Block1");
+    }
+
+    public void internalFunc2() {
+        System.out.println("internalFunc2() Block1");
+    }
+
 }

@@ -6,5 +6,7 @@ public class MainClass {
         AbstractBlock test_block = AbstractBlock.getInstance(1); // 1. Constuctor AbstractBlock 2. Constuctor Block1
         String block_type = test_block.getBlockType();
         System.out.println("Block type = " + block_type);
+        test_block.abstractFunc2();
+        //test_block.internalFunc2(); - не видит этой функции
     }
 }

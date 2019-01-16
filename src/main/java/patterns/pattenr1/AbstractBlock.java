@@ -22,4 +22,6 @@ public abstract class AbstractBlock {
             return "it's Block2";
         throw new IllegalArgumentException("Unknown block type");
     }
+
+    public abstract void abstractFunc2();
 }
